@@ -116,7 +116,7 @@ splitWith :: (a -> Bool) -> [a] -> [[a]]
 Framework” on page 71, write a program that prints the first word of each line of
 its input.
 4. Write a program that transposes the text in a file. For instance, it should convert
-"hello\nworld\n" to "hw\neo\nlr\nll\nod\n".
+"hello\\nworld\\n" to "hw\\neo\\nlr\\nll\\nod\\n".
 
 ## Exercise #6
 1. Use a fold (choosing the appropriate fold will make your code much simpler) to
