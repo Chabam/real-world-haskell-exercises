@@ -16,25 +16,23 @@
     * round 3.4
     * floor 3.7
     * ceiling 3.3
-2. From ghci, type :? to print some help. Define a variable, such as let x = 1, and
+2. From ghci, type `:?` to print some help. Define a variable, such as `let x = 1`, and
 then type :show bindings. What do you see?
-3. The words function breaks a string up into a list of words. Modify the WC.hs ex-
-ample in order to count the number of words in a file.
-4. Modify the WC.hs example again, in order to print the number of characters in a
+3. The words function breaks a string up into a list of words. Modify the `WC.hs` example in order to count the number of words in a file.
+4. Modify the `WC.hs` example again, in order to print the number of characters in a
 file.
 
 ## Exercise #2
-1. Haskell provides a standard function, last :: [a] -> a, that returns the last ele-
-ment of a list. From reading the type alone, what are the possible valid behaviors
+1. Haskell provides a standard function, `last :: [a] -> a`, that returns the last element of a list. From reading the type alone, what are the possible valid behaviors
 (omitting crashes and infinite loops) that this function could have? What are a few
 things that this function clearly cannot do?
-2. Write a function, lastButOne, that returns the element before the last.
+2. Write a function, `lastButOne`, that returns the element before the last.
 3. Load your lastButOne function into ghci and try it out on lists of different lengths.
 What happens when you pass it a list that’s too short?
 
 ## Exercise #3
-1. Write the converse of fromList for the List type: a function that takes a List a and
-generates a [a].
+1. Write the converse of fromList for the List type: a function that takes a `List a` and
+generates a `[a]`.
 2. Define a tree type that has only one constructor, like our Java example. Instead of
 the Empty constructor, use the Maybe type to refer to a node’s children.
 
@@ -47,8 +45,8 @@ file into ghci again.
 the list divided by its length. (You may need to use the fromIntegral function to
 convert the length of the list from an integer into a floating-point number.)
 4. Turn a list into a palindrome; i.e., it should read the same both backward and
-forward. For example, given the list [1,2,3], your function should return
-[1,2,3,3,2,1].
+forward. For example, given the list `[1,2,3]`, your function should return
+`[1,2,3,3,2,1]`.
 5. Write a function that determines whether its input list is a palindrome.
 6. Create a function that sorts a list of lists based on the length of each sublist. (You
 may want to look at the sortBy function from the Data.List module.)
@@ -56,8 +54,10 @@ may want to look at the sortBy function from the Data.List module.)
 ```
 -- file: ch03/Intersperse.hs
 intersperse :: a -> [[a]] -> [a]
+```
 The separator should appear between elements of the list, but it should not follow
 the last element. Your function should behave as follows:
+```
 ghci> :load Intersperse
 [1 of 1] Compiling Main
  ( Intersperse.hs, interpreted )
@@ -81,10 +81,10 @@ these possibilities.
 10. Write a function that calculates the turn made by three two-dimensional points
 and returns a Direction.
 11. Define a function that takes a list of two-dimensional points and computes the
-direction of each successive triple. Given a list of points [a,b,c,d,e], it should
-begin by computing the turn made by [a,b,c], then the turn made by [b,c,d],
-then [c,d,e]. Your function should return a list of Direction.
-12. Using the code from the preceding three exercises, implement Graham’s scan al-
+direction of each successive triple. Given a list of points `[a,b,c,d,e]`, it should
+begin by computing the turn made by `[a,b,c]`, then the turn made by `[b,c,d]`,
+then `[c,d,e]`. Your function should return a list of Direction.
+12. Using the code from the preceding three exercises, implement Graham’s scan al
 gorithm for the convex hull of a set of 2D points. You can find good description
 of what a convex hull (http://en.wikipedia.org/wiki/Convex_hull) is, and how the
 Graham scan algorithm (http://en.wikipedia.org/wiki/Graham_scan) should work,
@@ -120,7 +120,7 @@ its input.
 
 ## Exercise #6
 1. Use a fold (choosing the appropriate fold will make your code much simpler) to
-rewrite and improve upon the asInt function from the earlier section“Explicit Re-
+rewrite and improve upon the asInt function from the earlier section “Explicit Re-
 cursion” on page 85.
 ```
 -- file: ch04/ch04.exercises.hs
@@ -149,7 +149,7 @@ ghci> asInt_fold "2.7"
 ghci> asInt_fold "314159265358979323846"
 564616105916946374
 ```
-4. The asInt_fold function uses error, so its callers cannot handle errors. Rewrite
+4. The `asInt_fold` function uses error, so its callers cannot handle errors. Rewrite
 the function to fix this problem:
 ```
 -- file: ch04/ch04.exercises.hs
@@ -177,10 +177,10 @@ groupBy :: (a -> a -> Bool) -> [a] -> [[a]]
 9. Use ghci to load the Data.List module and figure out what groupBy does, then
 write your own implementation using a fold.
 10. How many of the following Prelude functions can you rewrite using list folds?
-• any
-• cycle
-• words
-• unlines
+* any
+* cycle
+* words
+* unlines
 For those functions where you can use either foldl' or foldr, which is more ap-
 propriate in each case?
 
@@ -207,12 +207,12 @@ fill :: Int -> Doc -> Doc
 ## Exercise #8
 1. Load the Control.Arrow module into ghci and find out what the second function
 does.
-2. What is the type of (,)? When you use it in ghci, what does it do? What about
-(,,)?
+2. What is the type of `(,)`? When you use it in ghci, what does it do? What about
+`(,,)`?
 
 ## Exercise #9
-1. Use ghci to explore what happens if you pass a malformed pattern, such as [, to
-globToRegex. Write a small function that calls globToRegex, and pass it a malformed
+1. Use ghci to explore what happens if you pass a malformed pattern, such as `[,` to
+`globToRegex`. Write a small function that calls globToRegex, and pass it a malformed
 pattern. What happens?
 2. While filesystems on Unix are usually case-sensitive (e.g., “G” vs. “g”) in filenames,
 Windows filesystems are not. Add a parameter to the globToRegex and
@@ -228,10 +228,10 @@ Unix-like system or on Windows.)
 2. If you’re on a Unix-like system, look through the documentation for the
 System.Posix.Files module, and see if you can find a replacement for the
 doesNameExist function.
-3. The * wild card matches names only within a single directory. Many shells have
-an extended wild card syntax, **, that matches names recursively in all directories.
-For example, **.c would mean “match a name ending in .c in this directory or any
-subdirectory at any depth”. Implement matching on ** wild cards.
+3. The `*` wild card matches names only within a single directory. Many shells have
+an extended wild card syntax, `**`, that matches names recursively in all directories.
+For example, `**.c` would mean “match a name ending in `.c` in this directory or any
+subdirectory at any depth”. Implement matching on `**` wild cards.
 
 ## Exercise #11
 1. Write a version of globToRegex that uses the type signature shown earlier.
@@ -251,20 +251,19 @@ parent.
 and filter results using another.
 
 ## Exercise #13
-1. Modify foldTree to allow the caller to change the order of traversal of entries in a
+1. Modify `foldTree` to allow the caller to change the order of traversal of entries in a
 directory.
-2. The foldTree function performs preorder traversal. Modify it to allow the caller to
+2. The `foldTree` function performs preorder traversal. Modify it to allow the caller to
 determine the order of traversal.
 3. Write a combinator library that makes it possible to express the kinds of iterators
-that foldTree accepts. Does it make the iterators you write any more succinct?
+that `foldTree` accepts. Does it make the iterators you write any more succinct?
 
 ## Exercise #14
 1. Although the file-finding code we described in this chapter is a good vehicle for
-learning, it’s not ideal for real systems programming tasks, because Haskell’s port-
-able I/O libraries don’t expose enough information to let us write interesting and
+learning, it’s not ideal for real systems programming tasks, because Haskell’s portable I/O libraries don’t expose enough information to let us write interesting and
 complicated queries.
 Port the code from this chapter to your platform’s native API, either
-System.Posix or System.Win32.
+`System.Posix` or `System.Win32`.
 2. Add the ability to find out who owns a directory entry to your code. Make this
 information available to predicates.
 
@@ -274,7 +273,7 @@ information available to predicates.
 gray” value in the header is less than 256, each pixel is represented by a single byte.
 However, it can range up to 65,535, in which case, each pixel will be represented
 by 2 bytes, in big-endian order (most significant byte first).
-Rewrite the raw PGM parser to accommodate both the single- and double-byte
+Rewrite the raw PGM parser to accommodate both the single and double-byte
 pixel formats.
 3. Extend your parser so that it can identify a raw or plain PGM file, and then parse
 the appropriate file type.
@@ -296,7 +295,7 @@ to see if it tries to write to a file handle that is not open. Try it out on saf
 2. Write an action that tries to write to a file handle that it has closed. Does your test
 catch this bug?
 3. In a form-encoded string, the same key may appear several times, with or without
-values, e.g., key&key=1&key=2. What type might you use to represent the values
+values, e.g., `key&key=1&key=2`. What type might you use to represent the values
 associated with a key in this sort of string? Write a parser that correctly captures
 all of the information.
 
@@ -329,11 +328,11 @@ to work with this new setup.
 former in your new App stack.
 
 ## Exercise #19
-1. Write a many parser, with type Parser a -> Parser [a]. It should apply a parser
+1. Write a many parser, with type `Parser a -> Parser [a]`. It should apply a parser
 until it fails.
-2. Use many to write an int parser, with type Parser Int. It should accept negative
+2. Use many to write an int parser, with type `Parser Int`. It should accept negative
 and positive integers.
-3. Modify your int parser to throw a NumericOverflow exception if it detects a numeric
+3. Modify your int parser to throw a `NumericOverflow` exception if it detects a numeric
 overflow while parsing.
 
 ## Exercise #20
@@ -346,21 +345,20 @@ command line.
 twice?
 
 ## Exercise #21
-1. The Chan type is implemented using MVars. Use MVars to develop a BoundedChan
+1. The Chan type is implemented using `MVars`. Use `MVars` to develop a `BoundedChan`
 library.
-Your newBoundedChan function should accept an Int parameter, limiting the num-
-ber of unread items that can be present in a BoundedChan at once.
-If this limit is hit, a call to your writeBoundedChan function must block until a reader
+Your `newBoundedChan` function should accept an `Int` parameter, limiting the number of unread items that can be present in a `BoundedChan` at once.
+If this limit is hit, a call to your `writeBoundedChan` function must block until a reader
 uses readBoundedChan to consume a value.
 2. Although we’ve already mentioned the existence of the strict-concurrency pack-
-age in the Hackage repository, try developing your own, as a wrapper around the
-built-in MVar type. Following classic Haskell practice, make your library type safe,
+age in the `Hackage` repository, try developing your own, as a wrapper around the
+built-in `MVar` type. Following classic Haskell practice, make your library type safe,
 so that users cannot accidentally mix uses of strict and nonstrict MVars.
 
 ## Exercise #22
-1. It can be difficult to determine when to switch from parSort2 to sort. An alternative
+1. It can be difficult to determine when to switch from `parSort2` to sort. An alternative
 approach to the one we outline previously would be to decide based on the length
-of a sublist. Rewrite parList2 so that it switches to sort if the list contains more
+of a sublist. Rewrite `parList2` so that it switches to sort if the list contains more
 than some number of elements.
 2. Measure the performance of the length-based approach and compare it with the
 depth approach. Which gives better performance results?
@@ -368,5 +366,5 @@ depth approach. Which gives better performance results?
 ## Exercise #23
 1. Our use of genericLength in easyList will cause our function to loop infinitely if
 we supply an infinite list. Fix this.
-2. Difficult: write a QuickCheck property that checks whether the observed false
+2. Difficult: write a `QuickCheck` property that checks whether the observed false
 positive rate is close to the requested false positive rate.
