@@ -1,0 +1,1 @@
+lastButOne list = last (init list)
